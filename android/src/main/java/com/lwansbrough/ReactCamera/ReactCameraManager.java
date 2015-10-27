@@ -26,11 +26,11 @@ public class ReactCameraManager extends SimpleViewManager<ReactCameraView> {
     @Override
     public ReactCameraView createViewInstance(final ThemedReactContext context) {
         this.context = context;
-        ReactCameraView view = new ReactCameraView(context);
+        final ReactCameraView view = new ReactCameraView(context);
         view.setmCallBack(new ReactCameraView.IResultCallback() {
             @Override
             public void result(Result lastResult) {
-                Toast.makeText(context, "Scan: " + lastResult.toString(), Toast.LENGTH_SHORT).show();
+                view.onReceiveNativeEvent(lastResult.getText());
             }
         });
         return view;

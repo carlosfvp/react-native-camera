@@ -61,9 +61,9 @@ class ReactCameraView extends ViewfinderView implements SurfaceHolder.Callback {
         event.putString("message", value);
         ReactContext reactContext = (ReactContext)getContext();
         reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
-            getId(),
-            "CameraBarCodeRead",
-            event);
+                getId(),
+                "topChange",
+                event);
     }
 
     @UIProp(UIProp.Type.STRING)
